@@ -1,7 +1,5 @@
 package ma.education.tp1.introduction;
 
-import ma.education.tp1.introduction.Salle;
-
 public class SalleCours extends Salle {
 	int nbPlaces;
 	

@@ -1,6 +1,4 @@
 package ma.education.tp1.introduction;
-import ma.education.tp1.introduction.Salle;
-import ma.education.tp1.introduction.SalleCours;
 
 public class TestHeritage {
 

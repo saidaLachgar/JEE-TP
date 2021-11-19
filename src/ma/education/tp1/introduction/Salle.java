@@ -3,10 +3,10 @@ package ma.education.tp1.introduction;
 public class Salle {
 	public long id;
 	public String nom;
-	/*
-	Salle (){
+	
+	public Salle (){
 		
-	}*/
+	}
 	
 	public Salle(String nom) {
         this.nom = nom;
@@ -25,7 +25,7 @@ public class Salle {
 		// System.out.println(o1);
 		System.out.println(o2.nom);
 		System.out.println(o3.nom+" id:"+o3.id);
-
+		System.out.println(!o2.equals(o3) ? "Objects are not equal" : "Objects are equal");
 	}
 
 }
