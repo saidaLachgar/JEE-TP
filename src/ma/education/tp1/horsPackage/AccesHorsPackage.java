@@ -1,17 +1,10 @@
-package ma.education.tp1;
-
-import java.util.Scanner;
-
+package ma.education.tp1.horsPackage;
 import ma.education.tp1.introduction.Salle;
 
 public class AccesHorsPackage extends Salle{
 
 	public static void main(String[] args) {
 		Salle b = new Salle(3, "Salle B");
-		// System.out.println(b.nom+" id:"+b.id);
-		Scanner s = new Scanner(System.in);
-		System.out.println("hi There, type your name please");
-		System.out.println("uuh so your name is "+s.nextLine()+"! cool i like it");
 	}
 	
 	public void afficher(Salle s) {
