@@ -1,4 +1,4 @@
-package package2;
+package ma.education.tp1;
 
 import java.util.Scanner;
 
