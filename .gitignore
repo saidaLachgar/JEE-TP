@@ -34,3 +34,6 @@ hs_err_pid*
 bin/
 .idia/
 .settings/
+tps/
+.classpath
+.project
