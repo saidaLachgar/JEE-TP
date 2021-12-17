@@ -31,8 +31,12 @@ hs_err_pid*
 # Editor-based HTTP Client requests
 /httpRequests/
 
+### Intellij Patch ###
+# Comment Reason: https://github.com/joeblau/gitignore.io/issues/186#issuecomment-215987721
+# *.iml
+# modules.xml
+
 bin/
-.idia/*
 .settings/
 tps/
 .classpath
