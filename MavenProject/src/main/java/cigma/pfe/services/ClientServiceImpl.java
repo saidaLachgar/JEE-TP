@@ -5,19 +5,18 @@ import cigma.pfe.repositories.ClientRepository;
 import cigma.pfe.repositories.ClientRepositoryImpl;
 
 public class ClientServiceImpl implements ClientService{
+    ClientRepository repository;
 
-    ClientRepository clientRepository;
-
-    public ClientServiceImpl(ClientRepository clientRepository) {
-        this.clientRepository = clientRepository;
+    public void setRepository(ClientRepository repository) {
+        this.repository = repository;
     }
 
     public ClientServiceImpl() {
-        System.out.println("Call ClientServiceImpl ....");
+//        System.out.println("Call ClientServiceImpl ....");
     }
 
     @Override
-    public Client save(Client c) {
-        return null;
+    public boolean save(Client c) {
+        return repository.save(c);
     }
 }

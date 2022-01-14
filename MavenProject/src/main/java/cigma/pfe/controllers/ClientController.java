@@ -1,21 +1,21 @@
 package cigma.pfe.controllers;
 
 import cigma.pfe.models.Client;
-import cigma.pfe.services.ClientService;
 import cigma.pfe.services.ClientServiceImpl;
+import cigma.pfe.services.ClientService;
+
 
 public class ClientController {
-    ClientService clientService;
-
-    public ClientController(ClientService clientService) {
-        this.clientService = clientService;
+    ClientService service;
+    public void setService(ClientService service) {
+        this.service = service;
     }
 
-    public Client save(Client c ){
-        System.out.println("ClientController level...");
-        return clientService.save(c);
+    public boolean save(Client c ){
+//        System.out.println("ClientController level...");
+        return service.save(c);
     }
     public ClientController() {
-        System.out.println("Call ClientController ....");
+//        System.out.println("Call ClientController ....");
     }
 }
