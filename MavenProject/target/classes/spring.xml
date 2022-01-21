@@ -1,10 +1,12 @@
 <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "https://www.springframework.org/dtd/spring-beans-2.0.dtd">
 <beans>
     <bean id="controller" class="cigma.pfe.controllers.ClientController" scope="prototype">
-        <property name="service" ref="service"/>
+<!--        <property name="ClientService" ref="ClientService"/>-->
+        <constructor-arg ref="service"/>
     </bean>
     <bean id="service" class="cigma.pfe.services.ClientServiceImpl" scope="prototype">
-        <property name="repository" ref="repository"/>
+        <constructor-arg ref="repository"/>
+<!--        <property name="ClientRepository" ref="ClientRepository"/>-->
     </bean>
     <bean id="repository" class="cigma.pfe.repositories.ClientRepositoryImpl" scope="prototype">
     </bean>

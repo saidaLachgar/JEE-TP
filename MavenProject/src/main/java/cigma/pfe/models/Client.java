@@ -2,36 +2,37 @@ package cigma.pfe.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
-@Setter
-@Getter
+import java.util.List;
 
+@Getter
+@Setter
 @AllArgsConstructor
-@Entity(name = "TClients")
+@Entity(name = "Tclients")
 public class Client {
     @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
-    public long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id ;
+    private String name;
+    @OneToMany(cascade = CascadeType.PERSIST,mappedBy = "client")
+    private List<Facture> factures;
 
-    @Column
-    public String name;
+    @ManyToMany(cascade = {CascadeType.PERSIST})
+    @JoinTable(name = "my_join_table_client_promotion",joinColumns = @JoinColumn(name = "client_fk",referencedColumnName = "id" ),
+            inverseJoinColumns = @JoinColumn(name="promotion_fk",referencedColumnName="id"))
+    private List<Promotion> promotions;
 
-    @Transient
-    public double amount;
+    @OneToOne(cascade = {CascadeType.PERSIST},mappedBy = "client")
+    private  CarteFidelio carteFidelio;
 
-    public Client() {}
+    @OneToOne(cascade = {CascadeType.PERSIST},mappedBy = "client")
+    private  Adresse adresse;
 
     public Client(String name) {
-        // this.id = id;
-        this.name = name;
-    }
-    @Override
-    public String toString() {
-        return "Client{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                '}';
-    }
+        this.name = name; }
+    public Client(){}
 }

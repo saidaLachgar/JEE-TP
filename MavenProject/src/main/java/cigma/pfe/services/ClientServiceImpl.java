@@ -2,21 +2,21 @@ package cigma.pfe.services;
 
 import cigma.pfe.models.Client;
 import cigma.pfe.repositories.ClientRepository;
-import cigma.pfe.repositories.ClientRepositoryImpl;
 
 public class ClientServiceImpl implements ClientService{
-    ClientRepository repository;
+    ClientRepository clientRepository;
 
-    public void setRepository(ClientRepository repository) {
-        this.repository = repository;
+    public ClientServiceImpl(ClientRepository clientRepository) {
+        this.clientRepository = clientRepository;
     }
 
     public ClientServiceImpl() {
-//        System.out.println("Call ClientServiceImpl ....");
+      System.out.println("\n Call ClientServiceImpl ....\n");
     }
 
     @Override
     public boolean save(Client c) {
-        return repository.save(c);
+        System.out.println("\n ClientService level...\n");
+        return clientRepository.save(c);
     }
 }
