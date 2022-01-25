@@ -2,8 +2,10 @@ package cigma.pfe.services;
 
 import cigma.pfe.models.Client;
 import cigma.pfe.repositories.ClientRepository;
+import cigma.pfe.repositories.ClientRepositoryImpl;
 
 public class ClientServiceImpl implements ClientService{
+
     ClientRepository clientRepository;
 
     public ClientServiceImpl(ClientRepository clientRepository) {
@@ -15,7 +17,7 @@ public class ClientServiceImpl implements ClientService{
     }
 
     @Override
-    public boolean save(Client c) {
+    public Client save(Client c) {
         System.out.println("\n ClientService level...\n");
         return clientRepository.save(c);
     }

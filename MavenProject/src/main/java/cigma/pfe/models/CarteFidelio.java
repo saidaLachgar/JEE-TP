@@ -1,28 +1,29 @@
 package cigma.pfe.models;
 
+import javax.persistence.*;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
-import org.hibernate.annotations.Cascade;
 
-import javax.persistence.*;
-
-@Entity
 @Getter
 @Setter
-@ToString
 @AllArgsConstructor
+
+@Entity
 public class CarteFidelio {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String code;
-
-    @OneToOne()
+    @OneToOne
     @JoinColumn(name = "client_id")
-    private Client client ;
+    private Client client;
 
     public CarteFidelio(String code) {
-        this.code = code; }
+        this.code = code;
     }
+
+    public CarteFidelio(){}
+}
