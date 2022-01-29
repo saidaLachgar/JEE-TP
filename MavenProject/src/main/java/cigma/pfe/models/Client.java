@@ -11,10 +11,20 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @Entity
+//@Inheritance(strategy = InheritanceType.JOINED)
+
+//@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+//@DiscriminatorColumn(name="client_type")
+//@DiscriminatorValue("client")
+
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Client {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    // GenerationType.IDENTITY n’est pas permise si
+    // La stratégie d'héritage est TABLE_PER_CLASS
+    // @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.TABLE)
     private long id ;
     private String name;
 

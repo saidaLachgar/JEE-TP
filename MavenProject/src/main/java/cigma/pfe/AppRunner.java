@@ -21,7 +21,7 @@ public class AppRunner {
 
         Client clt = new Client("OMAR");
 
-        List<Facture> factures = Arrays.asList(
+        /*List<Facture> factures = Arrays.asList(
                 new Facture("1500.0","facture1", clt),
                 new Facture("2000.0","facture2", clt)
         );
@@ -35,7 +35,7 @@ public class AppRunner {
 
         CarteFidelio carteFidelio = new CarteFidelio("A29930489");
         carteFidelio.setClient(clt);
-        clt.setCarteFidelio(carteFidelio);
+        clt.setCarteFidelio(carteFidelio);*/
 
         ctrl.save(clt);
     }
