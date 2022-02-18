@@ -2,21 +2,43 @@ package cigma.pfe.services;
 
 import cigma.pfe.models.Client;
 import cigma.pfe.repositories.ClientRepository;
-import cigma.pfe.repositories.ClientRepositoryImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Service
 public class ClientServiceImpl implements ClientService{
     @Autowired
-    ClientRepository clientRepository;
+    ClientRepository dao;
 
     @Transactional
     @Override
     public Client save(Client c) {
         System.out.println("\n ClientService level...\n");
-        return clientRepository.save(c);
+        return (Client) dao.save(c);
+    }
+    @Transactional
+    @Override
+    public Client modify(Client newClt) {
+        Client oldClt = (Client) dao.findById(newClt.getId()).get();
+        oldClt.setName(newClt.getName());
+        return (Client) dao.save(oldClt);
+    }
+    @Transactional
+    @Override
+    public void remove(long idClt) {
+        dao.deleteById(idClt);
+    }
+
+    @Override
+    public Client getOne(long idClt) {
+        return (Client) dao.findById(idClt).get();
+    }
+
+    @Override
+    public List<Client> getAll() {
+        return (List<Client>) dao.findAll();
     }
 }

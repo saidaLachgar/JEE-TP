@@ -1,25 +1,21 @@
 package cigma.pfe;
 
-import cigma.pfe.controllers.ClientController;
-import cigma.pfe.models.CarteFidelio;
+
 import cigma.pfe.models.Client;
-import cigma.pfe.models.Facture;
-import cigma.pfe.models.Promotion;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.client.RestTemplate;
 
-import java.util.Arrays;
-import java.util.List;
-
+@SpringBootApplication
 public class AppRunner {
     public static void main(String[] args) {
 
         /* ClientController ctrl1 = new ClientController();*/
 
-        ApplicationContext context= new ClassPathXmlApplicationContext("spring.xml");
-        ClientController ctrl = (ClientController) context.getBean("controller");
+        // ApplicationContext context= new ClassPathXmlApplicationContext("spring.xml");
+        // ClientController ctrl = (ClientController) context.getBean("controller");
 
-        Client clt = new Client("OMAR");
+        //Client clt = new Client("OMAR");
 
         /*List<Facture> factures = Arrays.asList(
                 new Facture("1500.0","facture1", clt),
@@ -37,6 +33,9 @@ public class AppRunner {
         carteFidelio.setClient(clt);
         clt.setCarteFidelio(carteFidelio);*/
 
-        ctrl.save(clt);
+        //ctrl.save(clt);
+        SpringApplication.run(AppRunner.class, args);
     }
+
+
 }

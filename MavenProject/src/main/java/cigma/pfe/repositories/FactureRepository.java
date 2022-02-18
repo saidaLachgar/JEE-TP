@@ -1,11 +1,9 @@
 package cigma.pfe.repositories;
 
 import cigma.pfe.models.Facture;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
-public interface FactureRepository {
-    Facture save(Facture f);
-    Facture update(Facture f);
-    Facture delete(long id);
-    Facture find(long id);
-    Facture findAll();
+@Repository
+public interface FactureRepository extends CrudRepository<Facture, Long> {
 }
