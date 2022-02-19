@@ -24,6 +24,6 @@ public class MockClients implements CommandLineRunner {
         dao.save(c2);
         dao.save(c3);
         dao.save(c4);
-        dao.findAll().forEach(c -> System.out.println(c) );
+        dao.findAll().forEach(c -> System.out.println(c.getName()));
     }
 }

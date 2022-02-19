@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 //@Controller("controller")
 @RestController
@@ -15,19 +16,18 @@ public class ClientController {
     ClientService service;
 
     @PostMapping("/create")
-    public Client save(Client c) {
-        System.out.println("\n ClientController level...\n");
+    public Client save(@RequestBody Client c) {
         return service.save(c);
     }
 
     @PutMapping("/update")
-    public Client modify(Client clt) {
+    public Client modify(@RequestBody Client clt) {
         return service.modify(clt);
     }
 
     @DeleteMapping("/remove")
-    public void remove(long idClt) {
-        service.remove(idClt);
+    public void remove(@RequestBody Map<String, Integer> map) {
+        service.remove(map.get("id"));
     }
 
     @GetMapping("/{id}")

@@ -22,7 +22,7 @@ public class ClientServiceImpl implements ClientService{
     @Transactional
     @Override
     public Client modify(Client newClt) {
-        Client oldClt = (Client) dao.findById(newClt.getId()).get();
+        Client oldClt = (Client) dao.findById((long) newClt.getId()).get();
         oldClt.setName(newClt.getName());
         return (Client) dao.save(oldClt);
     }
