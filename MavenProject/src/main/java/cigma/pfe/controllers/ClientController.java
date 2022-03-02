@@ -25,9 +25,9 @@ public class ClientController {
         return service.modify(clt);
     }
 
-    @DeleteMapping("/remove")
-    public void remove(@RequestBody Map<String, Integer> map) {
-        service.remove(map.get("id"));
+    @DeleteMapping("/remove/{id}")
+    public void remove(@PathVariable ("id") long id) {
+        service.remove(id);
     }
 
     @GetMapping("/{id}")
