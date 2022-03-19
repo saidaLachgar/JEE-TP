@@ -21,12 +21,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         authenticationManagerBuilder
             .inMemoryAuthentication()
             .passwordEncoder(passwordEncoder)
-            .withUser("user").password(passwordEncoder.encode("123456")).roles("USER")
+            .withUser("user").password(passwordEncoder.encode("user")).roles("USER")
             .and()
-            .withUser("admin").password(passwordEncoder.encode("123456")).roles("ADMIN ");
+            .withUser("admin").password(passwordEncoder.encode("admin")).roles("ADMIN");
     }
 
     // Authorization
+    /*
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
@@ -41,5 +42,5 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .authenticated()
             .and()
             .formLogin().defaultSuccessUrl("/clients");
-    }
+    }*/
 }
